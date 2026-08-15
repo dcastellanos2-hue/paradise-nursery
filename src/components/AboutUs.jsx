@@ -1,18 +1,14 @@
 function AboutUs() {
   return (
-    <div className="about-us">
-      <h1>Paradise Nursery</h1>
+    <div className="about-us-container">
+      <h1>e-plantShopping - Paradise Nursery</h1>
 
       <p>
-        Paradise Nursery is your online destination for beautiful indoor
-        plants. We believe that bringing nature into your home creates a
-        peaceful, healthy, and inspiring environment.
+        e-plantShopping (Paradise Nursery) es tu destino en línea para adquirir hermosas plantas de interior. Creemos que llevar la naturaleza a tu hogar crea un ambiente tranquilo, saludable e inspirador.
       </p>
 
       <p>
-        Our collection includes carefully selected tropical, resilient,
-        and hanging plants that are perfect for transforming any indoor
-        space into a green paradise.
+        Nuestra colección incluye plantas tropicales, resistentes y colgantes cuidadosamente seleccionadas, perfectas para transformar cualquier espacio interior en un paraíso verde.
       </p>
     </div>
   );
