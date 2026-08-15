@@ -1,0 +1,429 @@
+/* ==============================
+   CONFIGURACIÓN GENERAL
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7f2;
+  color: #243b2a;
+}
+
+/* ==============================
+   PÁGINA DE INICIO
+================================ */
+
+.landing-page {
+  min-height: 100vh;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=2000&q=85");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.landing-content {
+  width: 90%;
+  max-width: 700px;
+
+  padding: 55px;
+
+  text-align: center;
+
+  color: white;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  border-radius: 25px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(5px);
+}
+
+.landing-content h1 {
+  font-size: 4rem;
+  margin: 0 0 20px;
+}
+
+.landing-content p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* Botón Get Started */
+
+.get-started-button {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  padding: 15px 38px;
+
+  border-radius: 30px;
+
+  background: #6a994e;
+  color: white;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.get-started-button:hover {
+  background: #386641;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ==============================
+   PÁGINA DE PRODUCTOS
+================================ */
+
+.products-page {
+  min-height: 100vh;
+
+  padding: 50px 7% 80px;
+
+  background:
+    linear-gradient(
+      rgba(244, 247, 242, 0.94),
+      rgba(244, 247, 242, 0.94)
+    ),
+    url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=2000&q=80");
+
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* Título principal */
+
+.products-page > h1 {
+  text-align: center;
+
+  font-size: 3rem;
+
+  margin: 10px 0 10px;
+
+  color: #243b2a;
+}
+
+.products-intro {
+  text-align: center;
+
+  font-size: 1.15rem;
+
+  color: #617064;
+
+  margin-bottom: 55px;
+}
+
+/* ==============================
+   CATEGORÍAS
+================================ */
+
+.category-section {
+  max-width: 1200px;
+
+  margin: 0 auto 70px;
+}
+
+.category-section h2 {
+  font-size: 2rem;
+
+  color: #386641;
+
+  border-left: 6px solid #6a994e;
+
+  padding-left: 15px;
+
+  margin-bottom: 25px;
+}
+
+/* ==============================
+   GRID DE PRODUCTOS
+================================ */
+
+.product-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 30px;
+}
+
+/* ==============================
+   TARJETA DE PRODUCTO
+================================ */
+
+.product-card {
+  background: white;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  border: 1px solid #e3e9df;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen */
+
+.product-card img {
+  width: 100%;
+
+  height: 260px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+/* Información */
+
+.product-info {
+  padding: 22px;
+}
+
+.product-info h3 {
+  margin: 0 0 10px;
+
+  font-size: 1.25rem;
+
+  color: #243b2a;
+}
+
+/* Precio */
+
+.price {
+  margin: 0 0 18px;
+
+  font-size: 1.3rem;
+
+  font-weight: bold;
+
+  color: #6a994e;
+}
+
+/* ==============================
+   BOTÓN AÑADIR
+================================ */
+
+.product-info button {
+  width: 100%;
+
+  padding: 12px 15px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #6a994e;
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.product-info button:hover:not(:disabled) {
+  background: #386641;
+
+  transform: translateY(-2px);
+}
+
+/* Botón deshabilitado */
+
+.product-info button:disabled {
+  background: #a7b5a1;
+
+  cursor: not-allowed;
+
+  opacity: 0.8;
+}
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .landing-content h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products-page {
+    padding: 35px 20px;
+  }
+
+  .products-page > h1 {
+    font-size: 2.3rem;
+  }
+
+  .landing-content {
+    padding: 35px 20px;
+  }
+
+  .landing-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .landing-content p {
+    font-size: 1rem;
+  }
+}
+
+/* ==============================
+   HEADER / NAVBAR
+================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 7%;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  color: #386641;
+
+  font-size: 1.5rem;
+
+  font-weight: bold;
+
+  text-decoration: none;
+}
+
+.header nav {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+.header nav a {
+  color: #304936;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: 0.25s;
+}
+
+.header nav a:hover {
+  color: #6a994e;
+}
+
+.cart-link {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.cart-count {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 24px;
+  height: 24px;
+
+  padding: 0 6px;
+
+  border-radius: 50%;
+
+  background: #6a994e;
+
+  color: white;
+
+  font-size: 0.85rem;
+
+  font-weight: bold;
+}
+
+/* Header en pantallas pequeñas */
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+
+    gap: 15px;
+
+    padding: 15px 20px;
+  }
+
+  .header nav {
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+}
