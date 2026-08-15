@@ -2,9 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import {
-  increaseQuantity,
-  decreaseQuantity,
-  removeFromCart,
+  removeItem,
+  updateQuantity,
 } from "../redux/CartSlice";
 
 import Header from "./Header";
@@ -24,16 +23,20 @@ function CartItem() {
     0
   );
 
-  const handleIncrease = (id) => {
-    dispatch(increaseQuantity(id));
+  const handleIncrease = (item) => {
+    dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }));
   };
 
-  const handleDecrease = (id) => {
-    dispatch(decreaseQuantity(id));
+  const handleDecrease = (item) => {
+    if (item.quantity > 1) {
+      dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
+    } else {
+      dispatch(removeItem(item.id));
+    }
   };
 
   const handleRemove = (id) => {
-    dispatch(removeFromCart(id));
+    dispatch(removeItem(id));
   };
 
   return (
@@ -86,7 +89,7 @@ function CartItem() {
                       <div className="quantity-controls">
                         <button
                           onClick={() =>
-                            handleDecrease(item.id)
+                            handleDecrease(item)
                           }
                         >
                           -
@@ -96,7 +99,7 @@ function CartItem() {
 
                         <button
                           onClick={() =>
-                            handleIncrease(item.id)
+                            handleIncrease(item)
                           }
                         >
                           +
