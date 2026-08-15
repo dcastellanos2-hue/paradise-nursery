@@ -11,7 +11,7 @@ const cartSlice = createSlice({
   initialState,
 
   reducers: {
-    addToCart: (state, action) => {
+    addItem: (state, action) => {
       const product = action.payload;
 
       const existingProduct = state.items.find(
@@ -35,39 +35,7 @@ const cartSlice = createSlice({
       );
     },
 
-    increaseQuantity: (state, action) => {
-      const product = state.items.find(
-        (item) => item.id === action.payload
-      );
-
-      if (product) {
-        product.quantity += 1;
-        state.totalQuantity += 1;
-      }
-
-      state.totalAmount = state.items.reduce(
-        (total, item) => total + item.price * item.quantity,
-        0
-      );
-    },
-
-    decreaseQuantity: (state, action) => {
-      const product = state.items.find(
-        (item) => item.id === action.payload
-      );
-
-      if (product && product.quantity > 1) {
-        product.quantity -= 1;
-        state.totalQuantity -= 1;
-      }
-
-      state.totalAmount = state.items.reduce(
-        (total, item) => total + item.price * item.quantity,
-        0
-      );
-    },
-
-    removeFromCart: (state, action) => {
+    removeItem: (state, action) => {
       const product = state.items.find(
         (item) => item.id === action.payload
       );
@@ -84,14 +52,29 @@ const cartSlice = createSlice({
         0
       );
     },
+
+    updateQuantity: (state, action) => {
+      const { id, quantity } = action.payload;
+      const product = state.items.find((item) => item.id === id);
+
+      if (product && quantity > 0) {
+        const quantityDifference = quantity - product.quantity;
+        product.quantity = quantity;
+        state.totalQuantity += quantityDifference;
+      }
+
+      state.totalAmount = state.items.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+      );
+    },
   },
 });
 
 export const {
-  addToCart,
-  increaseQuantity,
-  decreaseQuantity,
-  removeFromCart,
+  addItem,
+  removeItem,
+  updateQuantity,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
